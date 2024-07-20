@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kitapozetiapp/summary_repository.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
 
       home: HomePage(),
 
@@ -33,40 +35,55 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(onPressed: () {
+
+          }, icon: Icon(Icons.search, size: 32,))
+        ],
         title: Text("Kitap Özetleri"),
         centerTitle: true,
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Colors.lightBlueAccent,
       ),
       body: SafeArea(
-        child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,),
-          itemBuilder: (context, index) => Padding(child: GestureDetector(
+        child: GridView.count(
+          childAspectRatio: 0.7,
+          crossAxisCount: 2,
+          children: List.generate(kitapOzetleri.length, (index) {
+            return Padding(child: GestureDetector(
             child:
             Container(
-                height: 10, width: 10,
-                child: Align(child: Text("Kitap İsmi X",style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),), alignment: Alignment.center,),
-                decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12), color: Colors.blue.shade200)),
+              alignment: Alignment.center,
+            height: 10, width: 10,
+            child: Text(kitapOzetleri.keys.elementAt(index), textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, ),),
+            decoration: BoxDecoration(
+              image: DecorationImage(image: AssetImage('assets/cover.jpg'),fit: BoxFit.fill),
+            borderRadius: BorderRadius.circular(12), color: Colors.blue.shade200)),
 
             onTap: () => showDialog<String>(
-              context: context,
-              builder: (BuildContext context) => AlertDialog(
-                title: const Text('Kitap İsmi'),
-                content: const Text('Kitap Özeti'),
-                actions: <Widget>[
-                  TextButton(
-                    onPressed: () => Navigator.pop(context, 'OK'),
-                    child: const Text('OK'),
-                  ),
-                ],
-              ),
-            ),
-          ),
+            context: context,
+            builder: (BuildContext context) => AlertDialog(
+      title: Text(kitapOzetleri.keys.elementAt(index), style: TextStyle(
+        fontWeight: FontWeight.bold,
+      ),),
+      content: Text(kitapOzetleri.values.elementAt(index),
+      style: TextStyle(
+        fontSize: 18
+      ),),
+      actions: <Widget>[
+      TextButton(
+      onPressed: () => Navigator.pop(context, 'OK'),
+      child: const Text('OK'),
+      ),
+      ],
+      ),
+      ),
+      ),
 
-            padding: EdgeInsets.all(15),),
-          itemCount: 12,
+      padding: EdgeInsets.all(15),);
+      },
         ),
       ),
-    );
+    ));
   }
 }
