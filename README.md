@@ -84,3 +84,42 @@ Alınan kararlar: Uygulama fikri takımca yapılan beyin fırtınasıyla oluştu
 
 
 ---
+
+# Sprint 2
+
+- **Sprint Notları**: Sprint başında kısa bir sprint planlama toplantısı yapılarak bu sprintte yapılacak işler kararlaştırılmış, iş bölümü detaylandırılmış ve zaman planlaması yapılmıştır.
+
+- **Sprint içinde tamamlanması tahmin edilen puan**: 130 Puan
+
+
+- **Puan tamamlama mantığı**: Bir önceki sprintte hazırlanan arayüzün içinin doldurulması ve 30 kitabın özetinin eklenmesi nedeniyle totalde 320 puan olarak belirlenen backlog’un 130 puanlık kısmının sprint 2’de yapılması kararlaştırılmıştır.
+
+
+- **Daily Scrum**: Takım üyelerinin yoğunlukları, staj ve iş durumları göz önünde bulundurularak ikinci sprint toplantısında daily scrum toplantılarının WhatsApp üzerinden yapılmasına oy birliği ile karar verilmiştir. Daily Scrum toplantısı örnekleri:
+  
+  ![daily1](https://github.com/user-attachments/assets/d1253b25-eb6a-43a2-981c-63e601b18838)
+  ![daily2](https://github.com/user-attachments/assets/4e959439-927f-4771-9b97-fcb75e953274)
+  ![daily4](https://github.com/user-attachments/assets/12992fbd-2955-4a87-921c-78de319a800e)
+  ![daily5](https://github.com/user-attachments/assets/9e5391aa-184d-436a-80d4-490c19d78879)
+  
+
+  
+- **Sprint board update**: Sprint board screenshotları: 
+![Sprint 1](https://github.com/user-attachments/assets/6775eb9a-9c15-4f58-9ca3-2d95dbe109de)
+
+
+- **Ürün Durumu**: Ekran görüntüleri:
+  
+![urun1](https://github.com/user-attachments/assets/c54d9fed-2908-4cbd-a411-6a68e393bd07)
+![urun2](https://github.com/user-attachments/assets/6d72dea4-f1e3-469b-aa94-fc92e6961ecb)
+
+- **Sprint Review**: 
+Alınan kararlar: Daha erkene çekilen sprint toplantısı sayesinde, ekip üyelerinin sprint sürecinde üstlendikleri görevleri yerine getirmeleri için daha fazla zamanları olmuştur. Uygulamanın arayüz tasarımı ve kodlaması tamamlanmış, 30 adet kitabın özeti eklenmiştir. Sprint toplantısında backlog’a alınan görevlerin tamamı başarıyla tamamlanmıştır.
+
+- **Sprint Retrospective:**
+  - Zaman planlamasının sonuna tüm ekip üyelerinin son kontrol ve düzenlemeleri yapabilmeleri için boşluk bırakılmalı.
+  - Sprint’in ilk hastasının sonunda durum değerlendirmesi yapmak için bir toplantı planlanmalı ve üyelerin üzerine düşen görevlerde ne durumda oldukları değerlendirilmeli.
+
+
+---
+
