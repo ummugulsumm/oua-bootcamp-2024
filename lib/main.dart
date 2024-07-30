@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:kitapozetiapp/summary_repository.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
+import 'gemini_client.dart';
 
 void main() {
-  runApp(const MyApp());
+
+  //init Gemini
+  Gemini.init(apiKey: geminiApiKey);
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
   
   @override
@@ -30,15 +36,78 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  /// Search icin controller tuttuk.
+  late TextEditingController _controller;
+  final gemini = Gemini.instance;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    /// init ettik.
+    _controller = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    /// Yaptıktan sonra sifirladik.
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          IconButton(onPressed: () {
+          IconButton(
+          onPressed: () => showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: Text("Lütfen kitap ismini giriniz:", style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),),
+        content: TextField(
+          controller: _controller,
+          decoration: InputDecoration(
+            suffixIcon: IconButton(onPressed: () => showDialog<void>(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text("${_controller.text} kitabının özeti: "),
+                  content: FutureBuilder(
+                    future: gemini.text("Summarize the ${_controller.text} book in Turkish.")
+                        .then((value) => value?.output),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(child: CircularProgressIndicator());
+                      } else if (snapshot.hasError) {
+                        return Text('Error: ${snapshot.error}');
+                      } else if (snapshot.hasData) {
+                        return Text(snapshot.data.toString());
+                      } else {
+                        return const Text('No data');
+                      }
+                    },
+                  ),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text('OK'),
+                    ),
+                  ],
+                );
 
-          }, icon: Icon(Icons.search, size: 32,))
+              },
+            )
+            , icon: Icon(Icons.send))
+          ),
+        ),
+      ),
+    ), icon: Icon(Icons.search, size: 32,))
         ],
         title: Text("Kitap Özetleri"),
         centerTitle: true,
