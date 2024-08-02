@@ -118,7 +118,7 @@ Alınan kararlar: Daha erkene çekilen sprint toplantısı sayesinde, ekip üyel
 
 - **Sprint Retrospective:**
   - Zaman planlamasının sonuna tüm ekip üyelerinin son kontrol ve düzenlemeleri yapabilmeleri için boşluk bırakılmalı.
-  - Sprint’in ilk hastasının sonunda durum değerlendirmesi yapmak için bir toplantı planlanmalı ve üyelerin üzerine düşen görevlerde ne durumda oldukları değerlendirilmeli.
+  - Sprint’in ilk haftasının sonunda durum değerlendirmesi yapmak için bir toplantı planlanmalı ve üyelerin üzerine düşen görevlerde ne durumda oldukları değerlendirilmeli.
 
 
 ---
